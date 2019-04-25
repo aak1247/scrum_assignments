@@ -1,8 +1,8 @@
 # Info
 
-## Depedencies
+## Dependencies
 
-jdk>=1.9
+jdk>=1.10
 
 ## Usage
 
