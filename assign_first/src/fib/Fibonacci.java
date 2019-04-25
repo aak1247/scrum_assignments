@@ -1,3 +1,5 @@
+package fib;
+
 import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -5,15 +7,16 @@ import java.util.stream.Stream;
 
 import static java.lang.System.out;
 
-class Fibonacci {
+public class Fibonacci {
     private static List<Integer> range(int min, int max) {
         return Stream.iterate(min, i -> i + 1).limit(max - min + 1).collect(Collectors.toList());
     }
+
     private static List<Integer> range(int max) {
         return range(0, max);
     }
 
-    private static BigInteger of(int input) {
+    public static BigInteger of(int input) {
         if (input <= 2) return BigInteger.valueOf(1);
         var res = BigInteger.valueOf(1);
         var last = BigInteger.valueOf(1);
@@ -23,11 +26,6 @@ class Fibonacci {
             last = t;
         }
         return res;
-    }
-
-    private static BigInteger of_r(int input) {
-        if (input <= 2) return BigInteger.valueOf(1);
-        else return of_r(input - 1).add(of_r(input - 2));
     }
 
     public static void main(String args[]) {
