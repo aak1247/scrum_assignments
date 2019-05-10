@@ -1,6 +1,5 @@
 package texas;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -59,7 +58,7 @@ public class TexasImplTest {
     @Test
     public void isStraightFlush(){
         var input = new String[] {
-                "2H", "3H", "4H", "5H", "AH"
+                "2H", "3H", "4H", "5H", "6H"
         };
         assertTrue(texas.isStraightFlush(input));
     }
