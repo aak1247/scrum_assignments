@@ -6,10 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TexasTest {
-    private static Texas texas;
-    static {
-        texas = new TexasImpl();
-    }
+    private Texas texas = new TexasImpl();
 
     @Test
     public void Round1(){
