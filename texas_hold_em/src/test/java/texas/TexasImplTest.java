@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class TexaImplTest {
+public class TexasImplTest {
     TexasImpl texas = new TexasImpl();
 
     @Test
