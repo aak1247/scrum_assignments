@@ -1,0 +1,17 @@
+language: java
+
+
+jobs:
+  include:
+  - stage: test
+    jdk: openjdk11
+    script:
+    - cd assign_first
+    - javac Fibonacci.java && java Fibonacci
+    - cd ..
+  
+  - stage: test
+    jdk: openjdk11
+    script:
+    - cd texas_hold_em
+    - mvn test

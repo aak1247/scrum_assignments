@@ -1,11 +1,10 @@
 # Info
 
+[![Build Status](https://travis-ci.org/aak1247/scrum_assignments.svg?branch=master)](https://travis-ci.org/aak1247/scrum_assignments#)
+
 ## Dependencies
 
-jdk>=1.10
+jdk>=1.11
 
-## Usage
+## Contents
 
-```shell
-javac Fibonacci.java && java Fibonacci
-```
