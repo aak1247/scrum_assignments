@@ -7,7 +7,7 @@ jobs:
     jdk: openjdk11
     script:
     - cd assign_first
-    - javac src/fib/Fibonacci.java -d target && java target/fib/Fibonacci
+    - javac src/fib/Fibonacci.java
     - cd ..
   
   - stage: test
