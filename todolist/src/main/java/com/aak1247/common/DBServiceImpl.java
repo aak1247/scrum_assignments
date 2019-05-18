@@ -14,7 +14,7 @@ public class DBServiceImpl extends AbstractDBService {
     }
 
     @Override
-    public synchronized boolean insert(String key, com.aak1247.todos.entity.Todo value) {
+    public synchronized boolean insert(String key, Object value) {
         var res = cache.containsKey(key);
         if (!res) ++count;
         cache.putIfAbsent(key, value);
@@ -22,7 +22,7 @@ public class DBServiceImpl extends AbstractDBService {
     }
 
     @Override
-    public synchronized boolean remove(String key, com.aak1247.todos.entity.Todo value) {
+    public synchronized boolean remove(String key, Object value) {
         var res = cache.containsKey(key);
         if (res) {
             --count;
