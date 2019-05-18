@@ -13,9 +13,6 @@ import org.springframework.context.annotation.Bean;
 @EnableConfigurationProperties
 public class Application {
     public static void main(String[] args) {
-
-        // This is basically the same example as the web-examples static site example but it's booted using
-        // Spring Boot, not Vert.x
         SpringApplication.run(Application.class, args);
     }
 

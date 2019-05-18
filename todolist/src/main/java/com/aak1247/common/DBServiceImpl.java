@@ -6,8 +6,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 public class DBServiceImpl extends AbstractDBService {
+    private final ConcurrentHashMap<String, Object> cache;
     private volatile long count = 0;
-    private volatile ConcurrentHashMap<String, Object> cache;
 
     public DBServiceImpl() {
         cache = new ConcurrentHashMap<>();
@@ -15,14 +15,14 @@ public class DBServiceImpl extends AbstractDBService {
 
     @Override
     public synchronized boolean insert(String key, Object value) {
-        var res = cache.containsKey(key);
-        if (!res) ++count;
+        var res = !cache.containsKey(key);
+        if (res) ++count;
         cache.putIfAbsent(key, value);
         return res;
     }
 
     @Override
-    public synchronized boolean remove(String key, Object value) {
+    public synchronized boolean remove(String key) {
         var res = cache.containsKey(key);
         if (res) {
             --count;
