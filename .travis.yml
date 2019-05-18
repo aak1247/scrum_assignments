@@ -15,3 +15,11 @@ jobs:
     script:
     - cd texas_hold_em
     - mvn test
+    - cd ..
+
+  - stage: test
+    jdk: openjdk11
+    script:
+    - cd todolist
+    - mvn test
+    - cd ..
