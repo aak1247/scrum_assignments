@@ -23,3 +23,10 @@ jobs:
     - cd todolist
     - mvn test
     - cd ..
+
+  - stage: deploy to staging
+    script: skip
+    deploy: &heroku
+      provider: heroku
+      app: todo-of-scrum-assignments
+      api_key: $HEROKU_AUTH_TOKEN
