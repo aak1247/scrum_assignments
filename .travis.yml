@@ -31,3 +31,13 @@ jobs:
       provider: heroku
       app: todo-of-scrum-assignments
       api_key: $HEROKU_AUTH_TOKEN
+
+  - stage: deploy
+    before_deploy: cd react_todos
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      keep_history: true
+      on:
+        branch: master

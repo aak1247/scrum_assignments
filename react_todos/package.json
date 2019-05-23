@@ -3,9 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/core-decorators": "^0.20.0",
+    "@types/history": "^4.7.2",
+    "@types/react": "^16.8.18",
+    "@types/react-intl": "^2.3.17",
+    "@types/react-router": "^5.0.1",
+    "antd": "^3.18.2",
+    "core-decorators": "^0.20.0",
+    "jest": "23.6.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.4",
+    "mobx-react-router": "^4.0.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts-ts": "3.1.0"
+    "react-intl": "^2.9.0",
+    "react-mobx": "0.0.4",
+    "react-router": "^5.0.0",
+    "react-scripts-ts": "^4.0.8",
+    "ts-jest": "^24.0.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -18,6 +33,14 @@
     "@types/node": "^12.0.2",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
+    "mobx-react-devtools": "^6.1.1",
+    "node-sass": "^4.12.0",
     "typescript": "^3.4.5"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

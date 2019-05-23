@@ -1,20 +1,30 @@
-import * as React from 'react';
-import './App.css';
+import * as React from "react";
+import { Router, Route, Switch } from "react-router";
+import { createBrowserHistory } from "history";
+import { Provider } from "mobx-react";
+import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
 
-import logo from './logo.svg';
+import "./App.css";
+import rootStore from "./stores";
+import { MobxDevTools } from "./partials";
+import TodoPage from "./pages/TodoPage";
 
-class App extends React.Component {
+const browserHistory = createBrowserHistory();
+const routerStore = new RouterStore();
+const history = syncHistoryWithStore(browserHistory, routerStore);
+
+class App extends React.Component<any, {}> {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Provider {...rootStore}>
+        <MobxDevTools>
+          <Router history={history}>
+            <Switch>
+              <Route path="/" component={TodoPage} />
+            </Switch>
+          </Router>
+        </MobxDevTools>
+      </Provider>
     );
   }
 }
