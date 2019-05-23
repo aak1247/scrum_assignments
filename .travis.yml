@@ -33,6 +33,9 @@ jobs:
       api_key: $HEROKU_AUTH_TOKEN
 
   - stage: deploy
+    language: node_js
+    node_js: 
+      - "10"
     before_deploy: cd react_todos
     deploy:
       provider: pages
