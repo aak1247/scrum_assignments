@@ -2,10 +2,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  .anticon {
+    margin: 0.2rem;
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+  &_icons {
+  }
   &_left {
-    
   }
   &_right {
-
   }
 }

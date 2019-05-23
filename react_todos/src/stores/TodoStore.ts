@@ -1,35 +1,46 @@
 import { ITodo, ITodoStore } from './../interfaces/index';
-import { observable, action } from 'mobx';
+import { observable, action, computed } from 'mobx';
 
 class TodoStore implements ITodoStore {
-  @observable unfinishedTodos: (ITodo)[] = [];
-  @observable doneTodos: (ITodo)[] = [];
+  @observable todos: (ITodo)[] = observable.array([]);
+
+
+  @computed get unfinishedTodos(): (ITodo)[] {
+    return this.todos.filter(todo => !todo.done)
+  }
+
+  @computed get doneTodos(): (ITodo)[] {
+    return this.todos.filter(todo => todo.done)
+  }
 
   @action public async addNewTodo(data: ITodo) {
-    this.unfinishedTodos = this.unfinishedTodos.concat([data])
+    data = observable(data)
+    this.todos = this.todos.concat([data])
   }
 
   @action public async removeDoneTodo(id: number) {
     const newTodo = this.doneTodos.filter(todo => todo.id != id)
-    this.doneTodos = [...newTodo]
+    this.todos = observable.array([...newTodo, ...this.unfinishedTodos])
   }
 
   @action public async clearDone() {
-    this.doneTodos = []
+    this.todos = observable.array(this.unfinishedTodos)
   }
 
   @action public async addAll(data: ITodo[]) {
-    this.unfinishedTodos = this.unfinishedTodos.concat(...data)
+    data = data.map(d => observable(d))
+    this.todos = this.todos.concat(...data)
   }
 
   @action public async moveToDone(id: number) {
     const doneOne = this.unfinishedTodos.filter(todo => todo.id === id)[0]
-    this.unfinishedTodos = this.unfinishedTodos.filter(todo => todo.id !== id)
-    if (doneOne) this.doneTodos = this.doneTodos.concat([doneOne])
+    if (doneOne) {
+      doneOne.done = true
+    }
   }
 
   @action public async delNewTodo(id: number) {
-    this.unfinishedTodos = this.unfinishedTodos.filter(todo => todo.id !== id)
+    this.todos = this.todos.filter(todo => todo.id !== id)
   }
 
   public async doneAll(data: ITodo[]): Promise<void>;
@@ -40,13 +51,10 @@ class TodoStore implements ITodoStore {
       return;
     }
     if (typeof (data[0]) == 'number') {
-      const todos = this.unfinishedTodos.filter(todo => data.includes(todo.id));
-      this.unfinishedTodos = this.unfinishedTodos.filter(todo => !data.includes(todo.id))
-      this.doneTodos = this.doneTodos.concat(todos)
+      this.unfinishedTodos.filter(todo => data.includes(todo.id)).forEach(todo => todo.done = true);
     } else {
-      const todos = this.unfinishedTodos.filter(todo => data.includes(todo))
-      this.unfinishedTodos = this.unfinishedTodos.filter(todo => !data.includes(todo))
-      this.doneTodos = this.doneTodos.concat(todos)
+      const ids = data.map(d => d.id);
+      this.unfinishedTodos.filter(todo => ids.includes(todo.id)).forEach(todo => todo.done = true)
     }
   }
 

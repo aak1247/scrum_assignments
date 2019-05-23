@@ -1,0 +1,9 @@
+.todo-page {
+  min-height: 100vh;
+  h2 {
+    margin-bottom: 0;
+  }
+  &_col {
+    min-height: 50vh;
+  }
+}
