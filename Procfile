@@ -1,0 +1,1 @@
+web: java -jar todolist/target/todolist.jar
