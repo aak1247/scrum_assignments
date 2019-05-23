@@ -49,5 +49,5 @@ jobs:
       - git add build
       - git commit -m "built with travis:JOB $TRAVIS_JOB_NUMBER"
       - cd ..
-      - git subtree push --prefix react_todos/build https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG gh-pages
-      # - git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG `git subtree split --prefix react_todos/build`:gh-pages --force
+      # - git subtree push --prefix react_todos/build https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG gh-pages
+      - git push https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG `git subtree split --prefix react_todos/build`:gh-pages --force
