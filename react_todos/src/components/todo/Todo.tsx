@@ -1,5 +1,5 @@
 import * as React from "react";
-import { List, Typography } from 'antd'
+import { List, Typography, Icon } from 'antd'
 
 import "./Todo.scss";
 import { ITodoProps } from 'src/interfaces';
@@ -7,28 +7,24 @@ import { ITodoProps } from 'src/interfaces';
 const useState = React.useState;
 
 const Todo = (props: ITodoProps) => {
-  let [count, setCount] = useState(0);
+  let [choose, setChoose] = useState(false);
 
   return (
-    <List.Item
-      key={props.id} 
-    >
-      <List.Item.Meta>
-
-      </List.Item.Meta>
-      <Typography.Text>
-
-        {count}
-        <button onClick={() => setCount(count + 1)}>{count}</button>
+    <List.Item key={props.id} className="todo">
+      <Typography.Text className="todo_left">
         {props.id}
         {props.content}
         {props.createdTime}
-
       </Typography.Text>
-        
+
+      <Icon
+        type="check-circle"
+        theme="twoTone"
+        twoToneColor="#52c41a"
+        onClick={() => setChoose(!choose)}
+      />
     </List.Item>
-    
-  )
+  );
 }
 
 export default Todo;
