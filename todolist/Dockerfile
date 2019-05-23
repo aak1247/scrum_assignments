@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-alpine
+FROM openjdk:11-jdk
 MAINTAINER aak1247
 RUN mvn install
 ADD ./target/todolist.jar /home/
