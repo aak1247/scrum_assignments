@@ -40,8 +40,9 @@ jobs:
       - cd react_todos
       - git config --global user.email $GITHUB_EMAIL
       - git config --global user.name $GITHUB_USERNAME
+    install:
+      - npm install
     script:
-      - npm i
       - npm run build
     after_success:
       - rm .gitignore
