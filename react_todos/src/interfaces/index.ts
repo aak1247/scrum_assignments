@@ -13,19 +13,21 @@ export interface ICommonStore {
 }
 
 export interface ITodoStore {
-  todos: (ITodo)[];
-  addTodo: Function;
-  removeTodo: Function;
-  clear: Function;
+  unfinishedTodos: (ITodo)[];
+  doneTodos: (ITodo)[];
+  addNewTodo: Function;
+  removeDoneTodo: Function;
+  clearDone: Function;
   addAll: Function;
+  moveToDone: Function;
+  doneAll: Function;
+  delNewTodo: Function;
 }
 
 
 //================================================component============================================//
 //------------props----------//
 export interface IBaseProps {
-  common?:ICommonStore;
-  todo?:ITodoStore;
 }
 
 export interface IPageProps extends IBaseProps{
@@ -43,6 +45,11 @@ export interface ITodoPageProps extends IPageProps{
 
 export interface ITodoProps extends ITodo {
 
+}
+
+export interface ITodoListProps extends IBaseProps {
+  todos: (ITodo)[];
+  title: string;
 }
 
 //------------state----------//

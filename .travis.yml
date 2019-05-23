@@ -36,11 +36,18 @@ jobs:
     language: node_js
     node_js: 
       - "10"
-    before_deploy: cd react_todos
+    before_install:
+      - cd react_todos
+      - git config --global user.email $GITHUB_EMAIL
+      - git config --global user.name $GITHUB_USERNAME
+    script:
+      - npm i
+      - npm run build
+    after_success:
+      - rm .gitignore
+      - git add build
+      - git commit -m "built with travis:JOB $TRAVIS_JOB_NUMBER"
+      - git subtree push --prefix react_todos/build https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/$TRAVIS_REPO_SLUG gh-pages --force
     deploy:
-      provider: pages
-      skip_cleanup: true
-      github_token: $GITHUB_TOKEN
-      keep_history: true
       on:
         branch: master
