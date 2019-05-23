@@ -1,1 +1,0 @@
-web: cd todolist && mvn install && java -jar target/todolist.jar

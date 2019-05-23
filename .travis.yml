@@ -26,6 +26,7 @@ jobs:
 
   - stage: deploy to staging
     script: skip
+    before_deploy: cd todolist
     deploy: &heroku
       provider: heroku
       app: todo-of-scrum-assignments
