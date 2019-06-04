@@ -24,6 +24,16 @@ jobs:
     - mvn test
     - cd ..
 
+  - stage: test
+    language: node_js
+    node_js:
+      - "10"
+    script:
+    - cd e2e_test_demo
+    - npm ci
+    - npm run test:ci
+    - cd ..
+
   - stage: deploy to staging
     script: skip
     before_deploy: cd todolist
