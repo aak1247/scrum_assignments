@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "webpack-dev-server",
     "bundle": "webpack -p",
-    "e2e:open": "cypress open"
+    "e2e:open": "cypress open",
+    "start": "npm run start:dev"
   },
   "keywords": [],
   "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
@@ -22,8 +23,10 @@
     "babel-loader": "^6.2.9",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
+    "backstopjs": "^4.0.6",
     "css-loader": "^0.26.1",
     "cypress": "^3.3.1",
+    "eslint": "^5.16.0",
     "eslint-plugin-cypress": "^2.2.1",
     "react-hot-loader": "^1.3.1",
     "style-loader": "^0.13.1",
