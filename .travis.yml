@@ -28,13 +28,17 @@ jobs:
     language: node_js
     node_js:
       - "10"
+    before_script:
+    - cd e2e_test_demo
+    - npm install
+    - npm run launch:server
+    - cd ..
     script:
     - cd e2e_test_demo
-    - npm ci
     - npm run test:ci
     - cd ..
 
-  - stage: deploy to staging
+  - stage: deploy
     script: skip
     before_deploy: cd todolist
     deploy: &heroku
