@@ -16,23 +16,24 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
-      "label": "BackstopJS Homepage",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://garris.github.io/BackstopJS/",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "",
-      "delay": 0,
-      "hideSelectors": [],
-      "removeSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "postInteractionWait": 0,
-      "selectors": [],
+      "label": "tutorial paragraph",
+      "url": "http://localhost:8080",
+      "selectors": [
+        "p.tutorial"
+      ],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.1,
-      "requireSameDimensions": true
+      "misMatchThreshold": 10
+    },
+    {
+      "label": "input",
+      "url": "http://localhost:8080",
+      "selectors": [
+        ".create-todo-form>input"
+      ],
+      "selectorExpansion": true,
+      "expect": 1,
+      "misMatchThreshold": 10
     }
   ],
   "paths": {

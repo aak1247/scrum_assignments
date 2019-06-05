@@ -31,7 +31,7 @@ describe('Delete Test', () => {
 })
 
 describe('Edit Test', () => {
-  it('successfully add a task and remove it', () => {
+  it('successfully add a task and edit it', () => {
     cy.visit('http://localhost:8080')
     cy.get('p').contains('Create your first todo! :)')
     cy.get('input').type('task 1')

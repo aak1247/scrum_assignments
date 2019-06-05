@@ -7,3 +7,5 @@ node_modules
 .DS_Store
 .idea/
 cypress/videos
+backstop_data/html_report
+backstop_data/bitmaps_test
