@@ -50,7 +50,7 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.8.6",
     "react-app-polyfill": "^0.1.1",
-    "react-dev-utils": "^6.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.6",
     "react-draggable-tags": "^0.3.5",
     "react-dragula": "^1.1.17",
